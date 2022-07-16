@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import Box, { BoxProps } from '@mui/material/Box'
 import { Player } from '../src/components/player'
+import { Clock } from '../src/components/clock'
 import { css } from '@mui/styled-engine'
 import { data } from '../src/data'
 
@@ -11,7 +12,7 @@ const Overlay = css({
   color: 'rgba(255,255,255,0.5)',
   zIndex: 2,
   textShadow: '0 0 10px rgba(0,0,0,0.5)',
-  fontSize: '8em',
+  fontSize: '10vw',
 })
 
 function Item(props: BoxProps) {
@@ -46,11 +47,14 @@ const Home: NextPage = () => {
         {data.map((track) => (
           <Item>
             <div css={Overlay}>
-              <a href={track['name']}>Track {track['name']}</a>
+              <a href={track['name']}>{track['name']}</a>
             </div>
             <Player playBackUrl={track['videoId']} />
           </Item>
         ))}
+        <Item>
+          <Clock />
+        </Item>
       </Box>
     </div>
   )

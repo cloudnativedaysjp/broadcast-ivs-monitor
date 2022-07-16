@@ -11,7 +11,7 @@ const Overlay = css({
   color: 'rgba(255,255,255,0.5)',
   zIndex: 2,
   textShadow: '0 0 10px rgba(0,0,0,0.5)',
-  fontSize: '8em',
+  fontSize: '10vw',
 })
 
 const Track: NextPage = () => {
@@ -19,7 +19,7 @@ const Track: NextPage = () => {
 
   return (
     <div>
-      <div css={Overlay}>Track {router.query.trackId}</div>
+      <div css={Overlay}>{router.query.trackId}</div>
       {data.map((track) => {
         if (track.name == router.query.trackId) {
           return <Player playBackUrl={track.videoId} />
