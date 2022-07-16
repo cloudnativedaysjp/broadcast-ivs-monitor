@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import Box, { BoxProps } from '@mui/material/Box'
 import { Player } from '../src/components/player'
 import { css } from '@mui/styled-engine'
+import { data } from '../src/data'
 
 const Overlay = css({
   position: 'absolute',
@@ -11,10 +12,6 @@ const Overlay = css({
   zIndex: 2,
   textShadow: '0 0 10px rgba(0,0,0,0.5)',
   fontSize: '8em',
-})
-
-const Outer = css({
-  width: '100%',
 })
 
 function Item(props: BoxProps) {
@@ -44,32 +41,16 @@ function Item(props: BoxProps) {
 
 const Home: NextPage = () => {
   return (
-    <div css={Outer}>
+    <div>
       <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)' }}>
-        <Item>
-          <div css={Overlay}>Track A</div>
-          <Player
-            playBackUrl={
-              'https://d3pun3ptcv21q4.cloudfront.net/medialive/o11y2022/talks/1349/1349.m3u8'
-            }
-          />
-        </Item>
-        <Item>
-          <div css={Overlay}>Track B</div>
-          <Player
-            playBackUrl={
-              'https://d3pun3ptcv21q4.cloudfront.net/medialive/o11y2022/talks/1349/1349.m3u8'
-            }
-          />
-        </Item>
-        <Item>
-          <div css={Overlay}>Track C</div>
-          <Player
-            playBackUrl={
-              'https://d3pun3ptcv21q4.cloudfront.net/medialive/o11y2022/talks/1349/1349.m3u8'
-            }
-          />
-        </Item>
+        {data.map((track) => (
+          <Item>
+            <div css={Overlay}>
+              <a href={track['name']}>Track {track['name']}</a>
+            </div>
+            <Player playBackUrl={track['videoId']} />
+          </Item>
+        ))}
       </Box>
     </div>
   )
