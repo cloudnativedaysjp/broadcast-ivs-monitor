@@ -1,17 +1,17 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import videojs, { VideoJsPlayer } from 'video.js'
 import 'video.js/dist/video-js.css'
 
 declare function registerIVSTech(
-    vjs: typeof videojs,
-    config?: { wasmWorker: string; wasmBinary: string },
-  ): void
+  vjs: typeof videojs,
+  config?: { wasmWorker: string; wasmBinary: string },
+): void
 
 type Props = {
   playBackUrl?: string
 }
-  
-export const Player: React.FC<Props> = ({playBackUrl}) => {
+
+export const Player: React.FC<Props> = ({ playBackUrl }) => {
   const playerRef = useRef<VideoJsPlayer>()
   const videoElement = useRef<HTMLVideoElement>(null)
 
@@ -46,12 +46,14 @@ export const Player: React.FC<Props> = ({playBackUrl}) => {
 
   return (
     <div>
-        <video ref={videoElement}
-          className="video-js vjs-16-9 vjs-big-play-centered"
-          controls
-          autoPlay
-          playsInline
-          muted={false} />
+      <video
+        ref={videoElement}
+        className="video-js vjs-16-9 vjs-big-play-centered"
+        controls
+        autoPlay
+        playsInline
+        muted={false}
+      />
     </div>
   )
 }

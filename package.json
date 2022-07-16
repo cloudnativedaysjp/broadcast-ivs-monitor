@@ -8,7 +8,7 @@
         "start": "next start",
         "export": "next build && next export",
         "type-check": "tsc",
-        "lint": "eslint '*/**/*.{js,ts}' --quiet --fix"
+        "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix"
     },
     "dependencies": {
         "@emotion/cache": "^11.9.3",
