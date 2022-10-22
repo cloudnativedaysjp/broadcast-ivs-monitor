@@ -6,7 +6,7 @@ import { data } from '../src/data'
 
 const Overlay = css({
   position: 'absolute',
-  bottom: 10,
+  top: 10,
   right: 10,
   color: 'rgba(255,255,255,0.5)',
   zIndex: 2,

@@ -2,12 +2,13 @@ import type { NextPage } from 'next'
 import Box, { BoxProps } from '@mui/material/Box'
 import { Player } from '../src/components/player'
 import { Clock } from '../src/components/clock'
+import { AudioCapture } from '../src/components/audioCapture'
 import { css } from '@mui/styled-engine'
 import { data } from '../src/data'
 
 const Overlay = css({
   position: 'absolute',
-  bottom: 10,
+  top: 10,
   right: 10,
   color: 'rgba(255,255,255,0.5)',
   zIndex: 2,
@@ -54,6 +55,9 @@ const Home: NextPage = () => {
         ))}
         <Item>
           <Clock />
+        </Item>
+        <Item>
+          <AudioCapture />
         </Item>
       </Box>
     </div>
